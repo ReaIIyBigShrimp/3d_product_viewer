@@ -1,5 +1,5 @@
 // Global scope
-var scene, camera, renderer;
+var scene, camera, renderer, controls;
 // Cube Object
 var cube, material, mesh;
 function init() {
@@ -53,7 +53,7 @@ function init() {
     }
     sceneSetup();
 
-    var controls = new THREE.OrbitControls( camera );
+    controls = new THREE.OrbitControls( camera );
     // Create renderer
     console.log('Adding renderer to scene...');
     renderer = new THREE.WebGLRenderer({alpha: true});
@@ -70,8 +70,8 @@ function init() {
 // Updates every frame
 function animate(){
     requestAnimationFrame(animate);
-    //mesh.rotation.x += 0.01;
-    //mesh.rotation.y += 0.01;
+    mesh.rotation.x += 0.01;
+    mesh.rotation.y += 0.01;
     // Render the scene every frame.
     //console.log('Rotating cube...');
     // Needs to be here, so that the background is continuously updated.
