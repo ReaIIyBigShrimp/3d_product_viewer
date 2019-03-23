@@ -8,21 +8,6 @@ function init() {
     var h = loginDiv.offsetHeight;
     var w = loginDiv.offsetWidth;
 
-    /* var logoScene = new THREE.Scene();
-    var logoCamera = new THREE.PerspectiveCamera(45, window.innerWidth/innerHeight, 0.1, 1000);
-    logoCamera.position.set(0,0,0); */
-    console.log('Creating renderer for the logo...');
-    // Create renderer, whilst enabling the alpha channel.
-    var logoRenderer =  new THREE.WebGLRenderer({alpha: true});
-    // --- #1 Scene and camera
-    // --
-    // -
-    // Delete this unnecessary function. Optimise later for efficiency saving.
-    /* function addCamera() {
-        console.log("Adding camera to scene...");
-        // New camera
-        camera = new THREE.PerspectiveCamera();
-    } */
     scene = new THREE.Scene();
     camera = new THREE.PerspectiveCamera(45, w/h, 0.1, 1000);
     camera.position.set(0,0,30);
@@ -65,19 +50,10 @@ function init() {
         var light = new THREE.PointLight(0xFFFFDD);
         light.position.set(-15,10,15);
         scene.add(light);
-        // Loader
-        // Load Blender model
-        console.log("JSON Engaged");
-        var loader = new THREE.JSONLoader();
-        loader.load("test_corrected.json", addModelToScene);
     }
     sceneSetup();
-    // Add Blender model to scene
-    function addModelToScene (geometry) {
-        model = new THREE.Mesh(geometry);
-        model.scale.set(32,32,32);
-        scene.add(model);
-    }
+
+    var controls = new THREE.OrbitControls( camera );
     // Create renderer
     console.log('Adding renderer to scene...');
     renderer = new THREE.WebGLRenderer({alpha: true});
@@ -94,11 +70,12 @@ function init() {
 // Updates every frame
 function animate(){
     requestAnimationFrame(animate);
-    mesh.rotation.x += 0.01;
-    mesh.rotation.y += 0.01;
+    //mesh.rotation.x += 0.01;
+    //mesh.rotation.y += 0.01;
     // Render the scene every frame.
     //console.log('Rotating cube...');
     // Needs to be here, so that the background is continuously updated.
     renderer.setClearColor( 0x123456 );
     renderer.render(scene, camera);
+    controls.update();
 };
