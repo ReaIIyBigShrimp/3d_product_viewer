@@ -4,9 +4,9 @@ var scene, camera, renderer, controls;
 var cube, material, mesh;
 function init() {
     // Use DOM to gain access to login div
-    var loginDiv = document.getElementById('loginDiv');
-    var h = loginDiv.offsetHeight;
-    var w = loginDiv.offsetWidth;
+    var productDiv = document.getElementById('productDiv');
+    var h = productDiv.offsetHeight;
+    var w = productDiv.offsetWidth;
 
     scene = new THREE.Scene();
     camera = new THREE.PerspectiveCamera(45, w/h, 0.1, 1000);
@@ -53,7 +53,7 @@ function init() {
     }
     sceneSetup();
 
-    controls = new THREE.OrbitControls( camera );
+    controls = new THREE.OrbitControls( camera, productDiv );
     // Create renderer
     console.log('Adding renderer to scene...');
     renderer = new THREE.WebGLRenderer({alpha: true});
@@ -63,7 +63,7 @@ function init() {
     // Add renderer to DOM
     console.log('Appending to DOM...');
     // Append to login element
-    loginDiv.appendChild(renderer.domElement);
+    productDiv.appendChild(renderer.domElement);
     animate();
 };
 // Animation 
