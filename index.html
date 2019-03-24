@@ -1,20 +1,13 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset=utf-8>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <title>three.js app</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
 		<style>
 			body { margin: 0; }
 			canvas { width: 100%; height: 100% }
-
-            
-            .product-container {
-                display: block;
-                background-color: #1c2731;
-                padding: 20px;
-                margin: auto;
-            }
 
         
 
@@ -30,11 +23,21 @@
                 <h2 class="subtitle">
                 A simple container to divide your page into <strong>sections</strong>, like the one you're currently reading
                 </h2>
-                <div class="product-container container">
-                    <div id="productDiv" style="width: 250px; height: 250px">
-                        
+                <div class="columns is-desktop">
+                    <div class="column is-half">
+                        <div class="container">
+                            <div id="productDiv" style="width: 250px; height: 250px">
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column is-half">
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tempus sapien sit amet lorem luctus varius. Duis suscipit erat nulla, in dictum justo semper ut. Praesent aliquam turpis tempor felis congue, at interdum purus dignissim. Phasellus nisi justo, convallis sit amet nunc id, luctus bibendum augue.
+                        </p>
                     </div>
                 </div>
+                
             </div>
         </section>
        
